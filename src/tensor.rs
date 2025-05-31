@@ -6,10 +6,10 @@ pub struct Tensor {
     pub shape: Vec<usize>,
 }
 
-impl Tensor{
-    pub fn new(data:Vec<f32>, shape:Vec<usize>) -> Result<Self,String>{
+impl Tensor {
+    pub fn new(data: Vec<f32>, shape: Vec<usize>) -> Result<Self, String> {
         let total_size = shape.iter().product();
-        if data.len() != total_size{
+        if data.len() != total_size {
             return Err(format!(
                 "数据长度 {} 与形状 {:?} 不匹配（总大小：{}）",
                 data.len(),
@@ -18,9 +18,6 @@ impl Tensor{
             ));
         }
 
-        return Ok(Tensor{
-            data,
-            shape,
-        });
+        return Ok(Tensor { data, shape });
     }
 }
